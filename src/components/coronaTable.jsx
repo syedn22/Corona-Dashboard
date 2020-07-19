@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Table from "./common/Table";
 
-import jsonData from "../services/dailyStateUpdate";
-import { getState } from './../services/indianState';
 
 class CoronaTable extends Component {
   state = {
@@ -21,23 +19,9 @@ class CoronaTable extends Component {
     console.log(sortColumn);
   };
 
-    async componentDidMount() {
-    const result = await jsonData.getData();
-    
-    this.setState({data:this.arrayOfObjects(result)});
-    }
-
-arrayOfObjects(result){
-    const stateData = [];
-
-    for (let key in result.data)
-      if (result.data[key].total)
-        stateData.push({ state: getState(key), ...result.data[key] });
-    return stateData;
-}
-
   render() {
-    const { data, columns, sortColumn } = this.state;
+    const { columns, sortColumn } = this.state;
+    const { data } = this.props;
 
     return (
       <Table
