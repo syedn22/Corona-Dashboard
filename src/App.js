@@ -7,11 +7,8 @@ import YoutubePlaylist from "./components/YoutubePlaylist";
 import Dashboard from "./components/dashboard";
 
 class App extends Component {
-  state = {
-    
-  };
+  state = {};
 
- 
   render() {
     return (
       <React.Fragment>

@@ -1,19 +1,23 @@
-import React, { Component } from 'react';
-import { getPlaylist } from '../services/PlayList';
+import React, { Component } from "react";
+import config from "../config.json";
+import http from "../services/httpService";
 class YoutubePlaylist extends Component {
-    state = { 
-     }
+  state = {
+    playList: [],
+  };
 
-    async componentDidMount()
-     {
-         this.setState({Playlist:await getPlaylist()})
-         console.log(this.state.Playlist);
-     }
-    render() { 
-        return <div className="card-header">
-            <div className="card-body"></div>
-        </div>
-    }
+  async componentDidMount() {
+    const result = await http.get(config.playList);
+    console.log(result.data.items);
+    this.setState({ playList: result.data.items });
+  }
+  render() {
+    return (
+      <div className="card-header">
+        <div className="card-body"></div>
+      </div>
+    );
+  }
 }
- 
+
 export default YoutubePlaylist;
