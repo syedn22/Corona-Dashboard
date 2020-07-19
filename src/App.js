@@ -3,11 +3,12 @@ import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import CoronaTable from "./components/coronaTable";
 import Navbar from "./components/common/Navbar";
-import LineChart from "./components/common/lineChart";
+import YoutubePlayer from "./components/common/YoutubePlayer";
 import jsonData from "./services/dailyStateUpdate";
 import { getState } from "./services/indianState";
 import { getTimeData } from "./services/timeSeries";
-import { get } from "lodash";
+import LineChart from './components/common/lineChart';
+import YoutubePlaylist from './components/YoutubePlaylist';
 
 class App extends Component {
   state = {
@@ -28,7 +29,7 @@ class App extends Component {
 
     for (let key in result.data)
       if (result.data[key].total)
-        stateData.push({ key,state: getState(key), ...result.data[key] });
+        stateData.push({ key, state: getState(key), ...result.data[key] });
     return stateData;
   }
 
@@ -37,8 +38,7 @@ class App extends Component {
 
     for (let key in timeSeries.data)
       if (timeSeries.data[key])
-        stateData.push({key, state: getState(key), ...timeSeries.data[key] });
-    console.log(stateData);
+        stateData.push({ key, state: getState(key), ...timeSeries.data[key] });
   }
 
   render() {
@@ -53,10 +53,14 @@ class App extends Component {
                   path="/dashboard"
                   render={() => <CoronaTable data={this.state.data} />}
                 />
+                 <Route
+                  path="/youtube"
+                  render={() => <YoutubePlaylist/>}
+                />
               </Switch>
             </div>
             <div className="col-sm m-5">
-              <LineChart />
+           <LineChart/>
             </div>
           </div>
         </main>

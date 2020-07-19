@@ -25,6 +25,12 @@ const Navbar = () => {
               Dashboard
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/youtube">
+              Youtube
+            </NavLink>
+          </li>
+
         </ul>
       </div>
     </nav>
