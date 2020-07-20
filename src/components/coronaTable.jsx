@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Table from "./common/Table";
 
-
 class CoronaTable extends Component {
   state = {
     data: [],
