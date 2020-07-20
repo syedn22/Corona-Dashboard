@@ -8,13 +8,12 @@ import { paginate } from "./../utils/paginate";
 class YoutubePlaylist extends Component {
   state = {
     playList: [],
-    pageSize: 5,
+    pageSize: 3,
     currentPage: 1,
   };
 
   async componentDidMount() {
     const result = await http.get(config.playList);
-    console.log(result.data.items);
     this.setState({ playList: result.data.items });
   }
 
@@ -34,7 +33,6 @@ class YoutubePlaylist extends Component {
   render() {
     const { pageSize, currentPage } = this.state;
     const { totalCount, playList } = this.getPagedData();
-    console.log(playList, pageSize, currentPage);
     return (
       <div>
         {playList.map((item) => (
