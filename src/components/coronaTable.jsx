@@ -20,7 +20,7 @@ class CoronaTable extends Component {
 
   render() {
     const { columns, sortColumn } = this.state;
-    const { data } = this.props;
+    const { data, onClick } = this.props;
 
     return (
       <Table
@@ -28,6 +28,7 @@ class CoronaTable extends Component {
         columns={columns}
         sortColumn={sortColumn}
         onSort={this.handleSort}
+        onClick={onClick}
       />
     );
   }

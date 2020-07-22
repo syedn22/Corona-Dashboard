@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Line } from "react-chartjs-2";
 import http from "../services/httpService";
 import config from "../config.json";
 import _ from "lodash";
@@ -8,7 +7,7 @@ import LineChart from "./common/lineChart";
 class Chart extends Component {
   state = {
     timeSeries: [],
-    stateCode: "TN",
+    stateCode: "AN",
     lineCharts: [
       { path: "confirmed", label: "Confirmed", color: "red", data: [] },
       { path: "recovered", label: "Recovered", color: "green", data: [] },
@@ -21,17 +20,42 @@ class Chart extends Component {
     const timeSeries = await http.get(config.timeSeries);
     this.setState({ timeSeries });
     const lineCharts = { ...this.state.lineCharts };
-    _(lineCharts).map(
-      (item) =>
-        (item.data = this.getGraphPoints(
-          timeSeries,
-          item.path,
-          this.state.stateCode,
-          10
-        ))
-    ).value();
+    const obj = _(lineCharts)
+      .map(
+        (item) =>
+          (item.data = this.getGraphPoints(
+            timeSeries,
+            item.path,
+            this.state.stateCode,
+            10
+          ))
+      )
+      .value();
 
     this.setState({ lineCharts });
+  }
+
+  async componentDidUpdate(prevProps, prevState) {
+    if (this.props !== prevProps) {
+      const { lineCharts, timeSeries } = this.state;
+    
+      if (prevState.stateCode !== this.props.StateCode) {
+        this.setState({ stateCode: this.props.StateCode });
+        const obj = _(lineCharts)
+          .map(
+            (item) =>
+              (item.data = this.getGraphPoints(
+                timeSeries,
+                item.path,
+                this.props.StateCode,
+                10
+              ))
+          )
+          .value();
+
+        this.setState({ lineCharts });
+      }
+    }
   }
 
   getGraphPoints = (timeSeries, path, Statename, NoofDataPoints) => {

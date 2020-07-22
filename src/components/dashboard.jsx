@@ -8,6 +8,7 @@ import Chart from "./Chart";
 class Dashboard extends Component {
   state = {
     data: [],
+    selectedState: "AN",
   };
   async componentDidMount() {
     const result = await http.get(config.data);
@@ -15,6 +16,9 @@ class Dashboard extends Component {
       data: this.mapStateName(result),
     });
   }
+  handleChangeState = (StateCode) => {
+    this.setState({ selectedState: StateCode });
+  };
 
   mapStateName(result) {
     const stateData = [];
@@ -26,14 +30,17 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { data } = this.state;
+    const { data, selectedState } = this.state;
     return (
       <div className="row">
         <div className="col-sm">
-          <CoronaTable data={data}></CoronaTable>
+          <CoronaTable
+            data={data}
+            onClick={this.handleChangeState}
+          ></CoronaTable>
         </div>
         <div className="col-sm">
-          <Chart />
+          <Chart StateCode={selectedState} />
         </div>
       </div>
     );

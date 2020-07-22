@@ -21,7 +21,6 @@ class LineChart extends Component {
     if(this.props!==prevProps)
     {
       const {dataset}=this.props;
-      console.log(dataset);
       this.setState({
         labels:dataset.data.x,
         datasets:[

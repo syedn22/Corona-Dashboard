@@ -12,11 +12,11 @@ class TableBody extends Component {
     return item.state + (column.path || column.key);
   }
   render() {
-    const { data, columns } = this.props;
+    const { data, columns, onClick } = this.props;
     return (
       <tbody>
         {data.map((item) => (
-          <tr key={item.state}>
+          <tr onClick={() => onClick(item.key)} key={item.state}>
             {columns.map((column) => (
               <td key={this.createKey(item, column)}>
                 {this.renderCell(item, column)}
