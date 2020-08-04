@@ -16,6 +16,7 @@ class Dashboard extends Component {
       data: this.mapStateName(result),
     });
   }
+
   handleChangeState = (StateCode) => {
     this.setState({ selectedState: StateCode });
   };
@@ -40,7 +41,7 @@ class Dashboard extends Component {
           ></CoronaTable>
         </div>
         <div className="col-sm">
-          <Chart StateCode={selectedState} />
+          <Chart stateCode={selectedState} />
         </div>
       </div>
     );

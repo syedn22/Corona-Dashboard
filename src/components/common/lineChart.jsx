@@ -17,7 +17,7 @@ class LineChart extends Component {
     ],
   };
 
-  async componentDidUpdate(prevProps){
+ componentDidUpdate(prevProps){
     if(this.props!==prevProps)
     {
       const {dataset}=this.props;
