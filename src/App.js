@@ -1,15 +1,11 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
-import Navbar from "./components/common/Navbar";
-import YoutubePlaylist from "./components/YoutubePlaylist";
 import Dashboard from "./components/dashboard";
-import YoutubePlayer from "./components/common/YoutubePlayer";
 
 import http from "./services/httpService";
 import config from "./config.json";
 import "./App.css";
-
 
 class App extends Component {
   state = {};
@@ -21,16 +17,11 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        
-          <Navbar />
-          <main>
-            <Switch>
-              <Route path="/youtube/:id" component={YoutubePlayer} />
-              <Route path="/youtube" render={() => <YoutubePlaylist />} />
-              <Route path="/dashboard" render={() => <Dashboard />} />
-            </Switch>
-          </main>
+      <div class="content">
+          <Switch>
+            <Route path="/dashboard" render={() => <Dashboard />} />
+            <Redirect from="/" to="/dashboard" />
+          </Switch>
       </div>
     );
   }

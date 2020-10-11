@@ -2,9 +2,25 @@
   cursor: pointer;
 }
 
-.img-width {
-  max-width: 300px;
+tbody,thead{
+  cursor: pointer;
+  color:#ececec;
+  border: #f0ece2;
+  border-color: #f2a365;
+  border-style: double;
+  border-width: 5px;
+
 }
+
+
+.content{
+  background-color:#0f3460;
+  width: 100%;
+  color:#ececec;
+  font-family: monospace;
+  font-size: 15px;
+}
+
 
 
 

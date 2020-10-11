@@ -1,0 +1,20 @@
+.box{
+    padding: 10px;
+    border-style: solid;
+}
+
+.box-primary{
+    border-color:blue;
+    color: blue;
+    
+}
+
+.box-success{
+    border-color: greenyellow;
+    color: greenyellow;
+}
+
+.box-dark{
+    border-color: black;
+    color: black;
+}

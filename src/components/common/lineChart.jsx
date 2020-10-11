@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Line } from "react-chartjs-2";
+import "../../Style/Chart.css"
 
 class LineChart extends Component {
   state = {
@@ -26,10 +27,12 @@ class LineChart extends Component {
         datasets:[
           {
             label: dataset.label,
-            fill: false,
+            fill: true,
             lineTension: 0.5,
+            borderColor:"rgba(0, 40, 0, 0.1)",
+            pointBackgroundColor:"rgba(0, 40, 0, 0.1)",
             backgroundColor: dataset.color,
-            borderColor: "rgba(0,0,0,1)",
+            borderColor: "rgba(100,150,150,1)",
             borderWidth: 2,
             data: dataset.data.y,
           }
@@ -41,7 +44,7 @@ class LineChart extends Component {
   render() {
     return (
       <div>
-        <Line data={this.state} />
+        <Line  data={this.state} />
       </div>
     );
   }
