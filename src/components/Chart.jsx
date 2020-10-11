@@ -23,7 +23,7 @@ class Chart extends Component {
     this.setState({ timeSeries });
     const lineCharts = { ...this.state.lineCharts };
     const { NoofDataPoints, stateCode } = this.state;
-    const obj = _(lineCharts)
+     _(lineCharts)
       .map(
         (item) =>
           (item.data = this.getGraphPoints(
@@ -40,7 +40,6 @@ class Chart extends Component {
 
   changeNumberofDataPoints = (data) => {
     this.setState({ NoofDataPoints: data });
-    console.log(data, this);
   };
 
   async componentDidUpdate(prevProps, prevState) {
@@ -52,7 +51,7 @@ class Chart extends Component {
         this.state.NoofDataPoints !== prevState.NoofDataPoints
       ) {
         this.setState({ stateCode: this.props.stateCode });
-        const obj = _(lineCharts)
+         _(lineCharts)
           .map(
             (item) =>
               (item.data = this.getGraphPoints(

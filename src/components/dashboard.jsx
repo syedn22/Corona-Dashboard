@@ -4,6 +4,8 @@ import http from "../services/httpService";
 import config from "../config.json";
 import { getState } from "./../services/indianState";
 import Chart from "./Chart";
+import Count from "./Count";
+import DataContext from "./../context/DataContext";
 
 class Dashboard extends Component {
   state = {
@@ -33,17 +35,19 @@ class Dashboard extends Component {
   render() {
     const { data, selectedState } = this.state;
     return (
-      <div className="row">
-        <div className="col-sm">
-          <CoronaTable
-            data={data}
-            onClick={this.handleChangeState}
-          ></CoronaTable>
-        </div>
-        <div className="col-sm">
-          <Chart stateCode={selectedState} />
-        </div>
-      </div>
+      <DataContext.Provider value={data}>
+        <main className="container">
+          <Count selectedState={selectedState} ></Count>
+          <div className="row">
+            <div className="col-sm">
+              <CoronaTable data={data} onClick={this.handleChangeState} />
+            </div>
+            <div className="col-sm">
+              <Chart stateCode={selectedState} />
+            </div>
+          </div>
+        </main>
+      </DataContext.Provider>
     );
   }
 }

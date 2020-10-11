@@ -42,7 +42,7 @@ class YoutubePlaylist extends Component {
                 <img
                   className="card-img-top img-width float-left m-4"
                   src={item.snippet.thumbnails.high.url}
-                  alt="Card image cap"
+                  alt="Card  cap"
                 ></img>
               </div>
               <div className="col">
