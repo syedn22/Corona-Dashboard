@@ -3,10 +3,8 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
-import "bootstrap/dist/css/bootstrap.css";
 import "font-awesome/css/font-awesome.css";
 import "jquery/dist/jquery.min.js";
-import "bootstrap/dist/js/bootstrap.min.js";
 import "chart.js";
 import "./index.css";
 

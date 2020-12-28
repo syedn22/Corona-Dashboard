@@ -1,13 +1,14 @@
 import React from "react";
-import "../../Style/Card.css";
 
-const Card = ({ label, data, color = "primary" }) => {
+const Card = ({ label, data, color }) => {
   return (
     <React.Fragment>
-      <div className={"box box-"+color} style={{ width: 300, margin: 20 }}>
-        <h1>{label}</h1>
-        <hr/>
-        <h5 className="card-title">{data}</h5>
+      <div className={color + " column-card "}>
+        <div>
+          <h1>{label}</h1>
+          {/* <hr className="rounded" /> */}
+          <h2>{data}</h2>
+        </div>
       </div>
     </React.Fragment>
   );

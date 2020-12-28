@@ -18,7 +18,7 @@ class TableBody extends Component {
         {data.map((item) => (
           <tr onClick={() => onClick(item.key)} key={item.state}>
             {columns.map((column) => (
-              <td key={this.createKey(item, column)}>
+              <td className="td clickable" key={this.createKey(item, column)}>
                 {this.renderCell(item, column)}
               </td>
             ))}

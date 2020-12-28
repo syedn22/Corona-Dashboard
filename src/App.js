@@ -17,11 +17,11 @@ class App extends Component {
 
   render() {
     return (
-      <div class="content">
-          <Switch>
-            <Route path="/dashboard" render={() => <Dashboard />} />
-            <Redirect from="/" to="/dashboard" />
-          </Switch>
+      <div className="app">
+        <Switch>
+          <Route path="/dashboard" render={() => <Dashboard />} />
+          <Redirect from="/" to="/dashboard" />
+        </Switch>
       </div>
     );
   }

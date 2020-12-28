@@ -23,10 +23,10 @@ export default function Count(props) {
   }, [props, States, StateCode]);
 
   return (
-    <div className="row m-4">
-      <Card label="active" data={active} />
-      <Card label="recovered" data={recovered} color="success" />
-      <Card label="dead" data={death} color="dark" />
+    <div className="row">
+      <Card label="Active" data={active} color="active" />
+      <Card label="Recovered" data={recovered} color="recovered" />
+      <Card label="Dead" data={death} color="dark" />
     </div>
   );
 }

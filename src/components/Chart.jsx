@@ -23,7 +23,7 @@ class Chart extends Component {
     this.setState({ timeSeries });
     const lineCharts = { ...this.state.lineCharts };
     const { NoofDataPoints, stateCode } = this.state;
-     _(lineCharts)
+    _(lineCharts)
       .map(
         (item) =>
           (item.data = this.getGraphPoints(
@@ -51,7 +51,7 @@ class Chart extends Component {
         this.state.NoofDataPoints !== prevState.NoofDataPoints
       ) {
         this.setState({ stateCode: this.props.stateCode });
-         _(lineCharts)
+        _(lineCharts)
           .map(
             (item) =>
               (item.data = this.getGraphPoints(
@@ -84,7 +84,8 @@ class Chart extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ paddingTop: 20 }}>
+        <h3>{"Click Here to change the Time Period"}</h3>
         <PeriodicButton
           onClick={this.changeNumberofDataPoints}
         ></PeriodicButton>

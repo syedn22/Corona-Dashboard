@@ -36,17 +36,22 @@ class Dashboard extends Component {
     const { data, selectedState } = this.state;
     return (
       <DataContext.Provider value={data}>
-        <main className="container">
-          <Count selectedState={selectedState} ></Count>
+        <header className="header">
+          {"COVID-19 INDIA STATISTICS" }
+        </header>
+        <main>
+          <Count selectedState={selectedState}></Count>
+          <hr className="rounded" />
           <div className="row">
-            <div className="col-sm">
+            <div className="column">
               <CoronaTable data={data} onClick={this.handleChangeState} />
             </div>
-            <div className="col-sm">
+            <div className="column">
               <Chart stateCode={selectedState} />
             </div>
           </div>
         </main>
+        <footer className="footer"></footer>
       </DataContext.Provider>
     );
   }
