@@ -6,7 +6,7 @@ body {
 }
 
 .header {
-  padding: 30px;
+  padding: 25px;
   text-align: center;
   background: #fed86c;
   color: black;
@@ -19,7 +19,7 @@ body {
   padding: 30px;
   text-align: center;
   background: #fed86c;
-  color: white;
+  color: black;
   font-size: 50px;
   border: 5px outset #787a7b;
   border-radius: 50px;

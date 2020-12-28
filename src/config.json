@@ -1,5 +1,4 @@
 {
   "timeSeries": "https://api.covid19india.org/v3/timeseries.json",
-  "playList": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=UU07-dOwgza1IguKA86jqxNA&key=AIzaSyBIHbd3dHFzXaIuy5Q3IiZll517w5TNvhw",
   "data": "https://api.covid19india.org/v3/data.json"
 }
